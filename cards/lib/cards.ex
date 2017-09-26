@@ -22,6 +22,14 @@ defmodule Cards do
 
   @doc """
     takes a list of strings and checks if a card is in the deck
+  
+  ## Examples
+
+      iex> deck = Cards.create_deck
+      iex> Cards.contains?(deck, "Nine of Hearts")
+      true
+      iex> Cards.contains?(deck, "Ace of Waters")
+      false
   """
   def contains?(deck, card) do
     Enum.member?(deck, card)
@@ -29,6 +37,13 @@ defmodule Cards do
 
   @doc """
     deals a hand of x numbers
+
+  ## Examples
+
+      iex> deck = Cards.create_deck
+      iex> {hand, remaining_deck} = Cards.deal(deck, 1)
+      iex> hand == ["Ace of Hearts"]
+      true
   """
   def deal(deck , hand_num) do
     Enum.split(deck, hand_num)
