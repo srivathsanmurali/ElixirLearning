@@ -6,3 +6,4 @@ on elixir and phoenix.
 # 26/9/2017
 + Mix -> A command line tool that is used to manage elixir projects.
       -> IT DOES EVERYTHING
++ Cards -> Started a project that manages a deck of cards
