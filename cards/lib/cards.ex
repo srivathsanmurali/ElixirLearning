@@ -33,4 +33,20 @@ defmodule Cards do
   def deal(deck , hand_num) do
     Enum.split(deck, hand_num)
   end
+
+  @doc """
+    save a deck/hand to file
+  """
+  def save(hand, filepath) do
+    binary = :erlang.term_to_binary(hand)
+    File.write(filepath, binary)
+  end
+
+  @doc """
+    load deck/hand from file
+  """
+  def load(filepath) do
+    {:ok, binary} = File.read(filepath)
+    :erlang.binary_to_term(binary)
+  end
 end
