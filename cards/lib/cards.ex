@@ -46,7 +46,9 @@ defmodule Cards do
     load deck/hand from file
   """
   def load(filepath) do
-    {:ok, binary} = File.read(filepath)
-    :erlang.binary_to_term(binary)
+    case File.read(filepath) do
+      {:ok, binary} -> :erlang.binary_to_term(binary)
+      {:error, _} -> "That file doesn't exist"
+    end
   end
 end
