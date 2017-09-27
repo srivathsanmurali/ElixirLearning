@@ -28,6 +28,9 @@ defmodule Identicon.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:ex_doc, "~> 0.16"},
+      {:egd, github: "erlang/egd"}
+    ]
   end
 end
