@@ -13,6 +13,17 @@ defmodule Discuss.TopicController do
     render conn, "index.html", topics: topics
   end
 
+  def show(conn, %{"id" => topic_id}) do
+    case Repo.get(Topic, topic_id) do
+      nil ->
+        conn
+        |> put_flash(:error, "Topic not found")
+        |> redirect(to: topic_path(conn, :index))
+      topic ->
+        render conn, "show.html", topic: topic
+    end
+  end
+
   @doc """
     handles new topic get request.
 
